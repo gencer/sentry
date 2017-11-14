@@ -581,7 +581,9 @@ class SecurityReportView(StoreView):
     content_types = (
         'application/csp-report',
         'application/json',
+        'application/expect-ct-report',
         'application/expect-ct-report+json',
+        'application/expect-staple-report',
     )
 
     def _dispatch(self, request, helper, project_id=None, origin=None, *args, **kwargs):
