@@ -4,7 +4,9 @@ import React from 'react';
 import ApiMixin from '../../mixins/apiMixin';
 import GroupState from '../../mixins/groupState';
 
-import {CommitLink} from '../../views/releases/releaseCommits';
+import CommitLink from '../../views/releases/commitLink';
+import PullRequestLink from '../../views/releases/pullRequestLink';
+
 import Duration from '../../components/duration';
 import Avatar from '../../components/avatar';
 import TimeSince from '../../components/timeSince';
@@ -57,6 +59,17 @@ const GroupActivity = React.createClass({
               inline={true}
               commitId={data.commit.id}
               repository={data.commit.repository}
+            />
+          ),
+        });
+      case 'set_resolved_in_pull_request':
+        return t('%(author)s marked this issue as fixed in %(version)s', {
+          author,
+          version: (
+            <PullRequestLink
+              inline={true}
+              pullRequestId={data.pull_request.id}
+              repository={data.pull_request.repository}
             />
           ),
         });
