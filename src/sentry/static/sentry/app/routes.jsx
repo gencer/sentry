@@ -109,10 +109,10 @@ import TeamMembers from './views/teamMembers';
 import TeamSettings from './views/teamSettings';
 import errorHandler from './utils/errorHandler';
 
-function appendTrailingSlash(nextState, replaceState) {
+function appendTrailingSlash(nextState, replace) {
   let lastChar = nextState.location.pathname.slice(-1);
   if (lastChar !== '/') {
-    replaceState(nextState, nextState.location.pathname + '/');
+    replace(nextState.location.pathname + '/');
   }
 }
 
